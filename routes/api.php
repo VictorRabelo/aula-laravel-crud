@@ -30,7 +30,7 @@ Route::group(['prefix' =>'/v1'], function() {
         Route::put('/{id}', 'CrudController@update');
 
         // D - DELETE
-        Route::delete('/', 'CrudController@destroy');
+        Route::delete('/{id}', 'CrudController@destroy');
 
     });
     

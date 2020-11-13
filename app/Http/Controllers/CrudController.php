@@ -69,9 +69,8 @@ class CrudController extends Controller
     public function store(Request $request)
     {
         try {
-
+            
             $user = User::create([
-
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -106,10 +105,9 @@ class CrudController extends Controller
         try {
 
             $user = User::findOrFail($id);
-            
-            $user->update($request->all());
-            
 
+            $user->updateOrInsert($request->all());
+            
             return response()->json([
 
                 'codeStatus' => 200,
